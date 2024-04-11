@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  similarity-server:
+    build: ./server
+    container_name: similarity-api-container
+    ports:
+      - 4000:4000
+    links:
+      - similarity-mongodb-container
+  similarity-mongodb-container:
+    build: ./db
+  #   hostname: app_database
+  #   restart: unless-stopped
+  #   container_name: similarity-mongodb-container
+  #   ports:
+  #     - 27017:27017

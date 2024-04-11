@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  flask-server:
+    build: ./server
+    container_name: flask-api-container
+    ports:
+      - 4000:4000
+  mongodb-container:
+    image: mongo:latest
+    hostname: app_database
+    restart: unless-stopped
+    container_name: mongodb-container
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - 27017:27017
+# In case we want to run command inside our container we can run: docker exec -it container-name bash
