@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  bank-server:
+    build: ./server
+    container_name: bank-api-container
+    ports:
+      - 4000:4000
+    depends_on:
+      - bank-mongodb-container
+  bank-mongodb-container:
+    build: ./db
+    container_name: bank-mongodb-container

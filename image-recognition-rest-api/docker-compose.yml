@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  image-recognition-server:
+    build: ./server
+    container_name: image-recognition-api-container
+    ports:
+      - 4000:4000
+    depends_on:
+      - image-recognition-mongodb-container
+  image-recognition-mongodb-container:
+    build: ./db
+    container_name: image-recognition-mongodb-container
